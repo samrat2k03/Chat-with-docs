@@ -1,0 +1,11 @@
+langchain
+streamlit
+transformers
+sentence_transformers
+duckdb
+chromadb
+sentence-transformers
+sentencepiece
+torch
+torchvision
+streamlit-chat
