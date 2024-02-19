@@ -4,6 +4,7 @@
 ## Tech Stack
 - Streamlit
 - Langchain
+- Google's Gemini API
 - pytorch
 
 ## Installation guide
