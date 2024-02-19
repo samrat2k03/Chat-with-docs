@@ -53,9 +53,9 @@ def user_input(user_question):
     new_db = FAISS.load_local("faiss_index", embeddings)
     docs = new_db.similarity_search(user_question)
     chain = get_conversation_chain()
-    response = chain(
-        {"input_documents":docs, "question": user_question}
-        , return_only_outputs=True)
+
+    with st.spinner('Waiting for response...'):
+        response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
     print(response)
     st.write("You :", user_question)
     st.write("AI : ", response["output_text"])
