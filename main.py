@@ -13,8 +13,8 @@ from dotenv import load_dotenv
 
 # gemini api 
 load_dotenv()
-genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))         
-
+genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
+             
 def get_pdf_text(pdf_docs):
     text = ""
     for pdf in pdf_docs:
@@ -57,14 +57,11 @@ def user_input(user_question):
         {"input_documents":docs, "question": user_question}
         , return_only_outputs=True)
     print(response)
-    st.write("Reply: ", response["output_text"])
-
-# to clear typed text 
-def clear_input_field():
-    st.session_state.user_input1 = ""
+    st.write("You :", user_question)
+    st.write("AI : ", response["output_text"])
 
 # main function 
-def main():    
+def main():
     # for website name and icon 
     st.set_page_config(
         page_title="Chat With Docs",
@@ -99,10 +96,8 @@ def main():
 
     user_question = st.text_input("Ask a Question:", placeholder="enter your queries")
 
-
     if user_question:
         user_input(user_question)
 
-    
 if __name__ == '__main__':
     main()
